@@ -26,7 +26,7 @@ done
 echo "        ]);
 
         var options = {
-          title: 'Memory usage',
+          title: 'Memory/CPU usage',
           hAxis: {title: 'Time',  titleTextStyle: {color: '#333'}},
           vAxis: {minValue: 0, maxValue: 100}
         };
