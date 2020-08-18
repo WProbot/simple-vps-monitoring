@@ -1,4 +1,5 @@
 #!/bin/bash
+INPUT=$1
 OUTPUT=/var/www/html/index.html
 TMP=/tmp/monitoring.tmp
 LOG=/var/mon.log
@@ -11,18 +12,9 @@ echo "<html>
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-        ['Time', 'Memory usage (%)', 'CPU usage (%)']," > $TMP
+	['Time', 'Memory usage (%)', 'CPU usage (%)']," > $TMP
 
-IFS=$'\n'
-for line in $(cat $LOG) ; do
-        val=$(echo $line | cut --delimiter=' ' -f 1)
-        cpu=$(echo $line | cut --delimiter=' ' -f 2)
-        d1=$(echo $line | cut --delimiter=' ' -f 3)
-        d2=$(echo $line | cut --delimiter=' ' -f 4)
-        val=$(bc <<< "scale=2; $val/100")
-        echo "['$d1 $d2',$val,$cpu]," >> $TMP
-done
-
+	cat $LOG >> $TMP
 echo "        ]);
 
         var options = {
