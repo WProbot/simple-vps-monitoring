@@ -2,8 +2,8 @@
 
 ### CONFIG ###
 MAX_LOG_CNT=1440	           # max number of monitoring log entries that will be kept
-LOG_FILE=/var/simple-mon/logs      # file where memory and cpu usage will be logged to
 OUTPUT=/var/www/html/index.html    # file to which an usage graph will be written to
+LOG_FILE=/var/simple-mon/logs      # file where memory and cpu usage will be logged to
 ##############
 
 ### CHECK LOG FILE LENGTH ###
