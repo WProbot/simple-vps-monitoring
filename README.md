@@ -5,6 +5,9 @@ An HTML file contains usage-over-time graph is created and placed under director
 Memory/CPU usage graph is generated using [Google Charts](https://developers.google.com/chart) scripts.
 Intended to run on remote server to provide quick access to usage logs via browser. 
 
+## How to use (with setup.sh)
+Simply download and run setup.sh script. It will configure monitoring script and cron job definition.
+
 ## How to use
 Place the script in convenient location, add execute permissions and add a cron job definition.
 
