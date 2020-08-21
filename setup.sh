@@ -35,8 +35,10 @@ MAX_LOGS=$(((60/INTERVAL)*HOURS))
 echo "$MAX_LOGS log entries will be kept"
 
 # get output folder
-echo "specify output folder for HTML file:"
+echo "specify output folder where HTML file should be saved:"
 read OUTPUT
+
+mkdir -p $OUTPUT
 
 if ! [[ -d $OUTPUT ]] ; then
 	echo "Specified folder does not exists"
@@ -50,8 +52,8 @@ tail -n +6 "simple-monitor.sh" > "simple-monitor.sh.tmp"
 echo "#!/bin/bash
 
 ### CONFIG ###
-MAX_LOG_CNT=$MAX_LOGS	# max number of monitoring log entries that will be kept
-OUTPUT=$OUTPUT	# file to which an usage graph will be written to" > simple-monitor.sh
+MAX_LOG_CNT=$MAX_LOGS  	# max number of monitoring log entries that will be kept
+OUTPUT="$OUTPUT/index.html"	# file to which an usage graph will be written to" > simple-monitor.sh
 
 cat "simple-monitor.sh.tmp" >> "simple-monitor.sh"
 rm "simple-monitor.sh.tmp"
